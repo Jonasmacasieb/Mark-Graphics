@@ -28,17 +28,6 @@
   text-shadow: 1px 1px 3px #000;
 }
 
-nav a {
-  margin-left: 20px;
-  color: #f0f0f0;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ffd700;
-}
 
 .contact-section {
   background-color: #f0f0f0;
@@ -71,58 +60,54 @@ footer {
 }
 
 
-nav ul.main-nav {
+
+
+.main-nav {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   gap: 20px;
 }
 
-nav ul.main-nav li {
+.main-nav li {
   position: relative;
+
 }
 
-nav a {
+.main-nav a {
   text-decoration: none;
-  color: white;
-  font-weight: 500;
+  color: #ffffff;
   padding: 10px;
   display: block;
 }
 
-nav .dropdown-menu {
+/* Dropdown styles */
+.dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #1e1e2f;
-  padding: 10px 0;
+  background: rgb(0, 0, 0);
   list-style: none;
-  min-width: 160px;
-  z-index: 999;
+  border: 1px solid #ccc;
+  z-index: 1000;
 }
 
-nav .dropdown-menu li a {
-  padding: 10px 20px;
-  color: #f0f0f0;
-}
-
-nav .dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu {
   display: block;
 }
 
-nav .dropdown-menu li a:hover {
-  background: #333;
-  color: #ffd700;
+.dropdown-menu li a {
+  padding: 10px;
+  width: 150px;
+  white-space: nowrap;
 }
 
+/* Toggle button (hamburger) */
 .menu-toggle {
   display: none;
-  font-size: 1.5rem;
+  font-size: 26px;
   background: none;
   border: none;
-  color: white;
   cursor: pointer;
 }
 
@@ -132,35 +117,28 @@ nav .dropdown-menu li a:hover {
     display: block;
   }
 
-  .main-nav {
+  nav {
     display: none;
+    width: 100%;
+    background-color: #000000;
+  }
+
+  nav.show {
+    display: block;
+  }
+
+  .main-nav {
     flex-direction: column;
-    width: 100%;
-    background-color: #444;
-    margin-top: 1rem;
-  }
-
-  .main-nav.active {
-    display: flex;
-  }
-
-  .main-nav li {
-    width: 100%;
   }
 
   .dropdown-menu {
     position: static;
-    background-color: #555;
+    border: none;
+    background: transparent;
     display: none;
-    flex-direction: column;
   }
 
   .dropdown.open .dropdown-menu {
-    display: flex;
-  }
-
-  .dropdown > a::after {
-    content: " ▼";
-    font-size: 0.8em;
+    display: block;
   }
 }
