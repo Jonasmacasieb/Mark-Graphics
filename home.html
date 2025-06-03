@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Graphics</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    body {
+     
+      
+      align-items: center;     /* Vertical center */
+     background-image: url("assets/OFFICIALbg.jpg");
+     background-size: contain;
+      /* background-repeat: no-repeat; */
+     
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Mark's Design</h1>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <h2>Welcome to Mark's Design</h2>
+    <p>Discover the best clothing design</p>
+  </section>
+<div class="category-preview" id="categoryPreview"></div>
+  <!-- Products Section -->
+  <main class="container" id="products">
+   
+    <h2 class="section-title">Featured Products</h2>
+    <!-- T-Shirts -->
+<h3 id="tshirts" class="product-category">T-Shirts</h3>
+<div class="product-grid">
+  <a href="products/tshirts.html" class="product-card">
+  <img src="images/tshirts/t1.jpg" alt="T-Shirt"  width="150"/>
+    <h3>T-shirts</h3>
+    <p>Stylish graphic print</p>
+    </a>
+  </div>
+</div>
+
+<!-- Polos -->
+<h3 id="polos"class="product-category">Polos</h3>
+<div class="product-grid">
+    <a href="products/polos.html" class="product-card">
+  <img src="images/polos/p1.jpg" alt="polo"  />
+ <h3>Classic Polo</h3>
+    <p>Comfortable cotton polo</p>
+</a>
+  
+  </div>
+</div>
+
+<!-- Jerseys -->
+<h3 id="jerseys"class="product-category">Jerseys</h3>
+<div class="product-grid">
+      <a href="products/jersey.html" class="product-card">
+  <img src="images/jerseys/j1.jpg" alt="jersey"  />
+  <h3>Jersey</h3>
+    <p>Authentic sports jersey</p>
+</a>
+  </div>
+</div>
+
+<!-- Hoodies -->
+<h3 id="hoodies" class="product-category">Hoodies</h3>
+<div class="product-grid">
+      <a href="products/hoodies.html" class="product-card">
+  <img src="images/hoodies/h1.jpg" alt="hoodie" />
+ <h3>Hoodies</h3>
+    <p>Warm hoodie</p>
+</a>
+  </div>
+
+
+    <div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Product Image">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDescription"></p>
+    <!-- <span id="modalPrice" class="price"></span> -->
+  </div>
+</div>
+  </main>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Email: mark@store.com</p>
+      <p>Phone: +1 (555) 123-4567</p>
+      <p>Location: 123 Main St, Hometown, USA</p>
+    </div>
+  </section>
+
+<script src="script.js"></script>
+  <footer>
+    <p>&copy; 2025 Mark's Store. All rights reserved.</p>
+  </footer>
+</body>
+</html>

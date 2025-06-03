@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/Pirate\ Ship.ttf') format('truetype');
+}
+
+ body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center; /* Horizontal center */
+      align-items: center;     /* Vertical center */
+     background-image: url("assets/OFFICIALbg.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+    }
+
+    .button-link {
+      display: inline-block;
+      padding: 24px 36px;
+  
+     
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 40px;
+       font-family: 'MyFont', sans-serif;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-link:hover {
+      background-color: #ea00ff;
+    }
+
