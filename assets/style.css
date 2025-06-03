@@ -255,3 +255,38 @@ footer {
 }
 
 
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #444;
+    margin-top: 1rem;
+    padding: 1rem 0;
+  }
+
+  nav a {
+    padding: 1rem;
+    border-top: 1px solid #555;
+    text-align: center;
+  }
+
+  nav.active {
+    display: flex;
+  }
+}
+

@@ -117,3 +117,50 @@ nav .dropdown-menu li a:hover {
   color: #ffd700;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #444;
+    margin-top: 1rem;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .main-nav li {
+    width: 100%;
+  }
+
+  .dropdown-menu {
+    position: static;
+    background-color: #555;
+    display: none;
+    flex-direction: column;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: flex;
+  }
+
+  .dropdown > a::after {
+    content: " ▼";
+    font-size: 0.8em;
+  }
+}
