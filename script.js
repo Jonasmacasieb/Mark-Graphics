@@ -24,8 +24,8 @@
   }
 }
 const categories = [
-  { id: 'tshirts', label: 'T-Shirts', folder: 'images/tshirts/', images: ['t1.jpg', 't2.jpg'] },
-  { id: 'polos', label: 'Polos', folder: 'images/polos/', images: ['p1.jpg', 'p2.jpg',] },
+  { id: 'tshirts', label: 'T-Shirts', folder: 'images/tshirts/', images: ['t1.jpg', 't2.jpg', 't3.jpg', 't4.jpg', 't5.jpg', 't6.jpg', 't7.jpg', 't8.jpg', 't9.jpg', 't10.jpg'] },
+  { id: 'polos', label: 'Polos', folder: 'images/polos/', images: ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg'] },
   { id: 'jerseys', label: 'Jerseys', folder: 'images/jerseys/', images: ['j1.jpg', 'j2.jpg',] },
   { id: 'hoodies', label: 'Hoodies', folder: 'images/hoodies/', images: ['h1.jpg', 'h2.jpg',] }
 ];
