@@ -5,65 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Graphic Tees - Mark's Store</title>
   <link rel="stylesheet" href="../assets/product.css" />
- 
-     <style>
-     
-  
- 
-     main {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    .product-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .product-card {
-      border: 1px solid #ddd;
-      padding: 10px;
-      width: 200px;
-      text-align: center;
-      box-shadow: 0 0 6px #ccc;
-      border-radius: 6px;
-      transition: box-shadow 0.3s;
-      background: #fff;
-    }
-    .product-card:hover {
-      box-shadow: 0 0 12px #888;
-    }
-    .product-card img {
-      width: 100%;
-      height: auto;
-      max-height: 180px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .product-card h3 {
-      font-size: 1.1rem;
-      margin: 5px 0;
-    }
-    .product-card p {
-      margin: 4px 0;
-      font-size: 0.9rem;
-      color: #555;
-    }
-    .price {
-      font-weight: bold;
-      color: #222;
-      margin-top: 8px;
-    }
-      body {
-     
-      align-items: center;     /* Vertical center */
-     background-image: url("../assets/OFFICIALbg.jpg");
-     background-size: contain;
-     
-     
-    }
-  </style>
+ <link rel="prefetch" href="../products/hoodies.html" as="document">
+   <link rel="prefetch" href="../products/jersey.html" as="document">
+    <link rel="prefetch" href="../products/polos.html" as="document">
+     <link rel="prefetch" href="../products/tshirts.html" as="document">
+   
 </head>
 <body>
  
@@ -79,7 +25,7 @@
 
     <nav id="nav-links" class="hidden">
       <ul class="main-nav" id="main-nav">
-        <li><a href="../index.html#home">Home</a></li>
+              <li><a href="../home.html">Home</a></li>
         <li class="dropdown">
           <a href="#products" class="dropdown-toggle">Products ▾</a>
           <ul class="dropdown-menu">
@@ -97,15 +43,24 @@
 
 
   <main>
+    <!-- Image Modal -->
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
    <h1 class="tshirts"> Authentic Sports Jersey</h1>
   <div class="product-list">
       <!-- 20 products -->
       <!-- You can replace the image src and details with your actual images and info -->
       <div class="product-card">
+  
         <img src="../images/jerseys/j1.jpg" alt="Graphic Tee 1" />
         <h3>Graphic Tee 1</h3>
         <p>Stylish graphic print</p>
+      
         <p class="price"></p>
+       
       </div>
       <div class="product-card">
         <img src="../images/jerseys/j2.jpg" alt="Graphic Tee 2" />
@@ -125,6 +80,8 @@
       <p>Location: Aliaga, Malasiqui, Philippines</p>
     </div>
   </section>
+  <!-- <script src="disableimg.js"></script> -->
+    <link rel="preload" href="../products/scriptsp.js" as="script">
   <script src="scriptsp.js"></script>
   <footer>
     <p> <img src="../assets/OFFICIALLOGO.png" alt="Logo" width="40" />Design</p>
