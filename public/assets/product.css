@@ -241,7 +241,12 @@ footer {
      
      
     }
-
+.no-copy {
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
     .modal-image-wrapper {
   position: relative;
   display: inline-block;

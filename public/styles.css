@@ -14,7 +14,12 @@
       background-repeat: repeat;
       font-family: Arial, sans-serif;
     }
-
+.no-copy {
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
     .button-link {
       display: inline-block;
       padding: 24px 36px;

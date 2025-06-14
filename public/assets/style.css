@@ -23,7 +23,12 @@ body {
   background-color: #f9f9f9;
   color: #333;
 }
-
+.no-copy {
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
 .container {
   width: 90%;
   max-width: 1200px;
