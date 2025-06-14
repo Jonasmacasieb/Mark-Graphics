@@ -1,56 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<title>Simple Watermark with Image</title>
-<style>
-  .image-wrapper {
-    position: relative;
-    width: 600px;
-    margin: 50px auto;
-    border-radius: 10px;
-    overflow: hidden;
-  }
+@app.route('/get-images/<category>')
+def get_images_by_category(category):
+    if category not in CATEGORIES:
+        return jsonify([])
 
-  .image-wrapper img.main-image {
-    width: 100%;
-    display: block;
-    border-radius: 10px;
-  }
+    folder_path = os.path.join(BASE_FOLDER, category)
+    images = [
+        f"/images/{category}/{img}" for img in os.listdir(folder_path)
+        if img.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))
+    ]
+    return jsonify(images)
 
-  .watermark {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 20px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    user-select: none;
-    pointer-events: none;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-  }
 
-  .watermark img.logo {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    border-radius: 3px;
-  }
-</style>
-</head>
-<body>
+    function loadCategory(category) {
+  fetch(`/get-images/${category}`)
+    .then(res => res.json())
+    .then(images => {
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = ''; // Clear previous
+      images.forEach((imgPath, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${imgPath}" alt="${category} ${index + 1}" width="150">
+          <h3>${category} ${index + 1}</h3>
+        `;
+        productList.appendChild(card);
+      });
+    });
+}
 
-<div class="image-wrapper">
-  
-  <div class="watermark">
-    <img class="logo" src="assets/OFFICIALLOGO.png" alt="Logo" />
-    <span>Design</span>
-  </div>
-</div>
-
-</body>
-</html>
+// Example: load hoodies on page load
+loadCategory('hoodies');

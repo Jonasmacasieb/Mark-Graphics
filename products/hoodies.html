@@ -49,22 +49,27 @@
 </div>
    <h1 class="tshirts">Warm Hoodie</h1>
     <div class="product-list">
-      <!-- 20 products -->
-      <!-- You can replace the image src and details with your actual images and info -->
-      <div class="product-card">
-        <img src="../images/hoodies/h1.jpg" alt="Graphic Tee 1" />
-        <h3>Graphic Tee 1</h3>
-      
-        <p class="price"></p>
-      </div>
-      <div class="product-card">
-        <img src="../images/hoodies/h2.jpg" alt="Graphic Tee 2" />
-        <h3>Graphic Tee 2</h3>
      
-        <p class="price"></p>
-      </div>
-      
     </div>
+
+    
+<script>
+  fetch('/api/products/hoodies')
+    .then(res => res.json())
+    .then(images => {
+      const productList = document.querySelector('.product-list');
+      images.forEach((image, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${image}" alt="Hoodie ${index + 1}">
+          <h3>Hoodie ${index + 1}</h3>
+        `;
+        productList.appendChild(card);
+      });
+    })
+    .catch(err => console.error('Error loading products:', err));
+</script>
   </main>
 
  <section id="contact" class="contact-section">
@@ -75,7 +80,8 @@
       <p>Location: Aliaga, Malasiqui, Philippines</p>
     </div>
   </section>
-  <!-- <script src="disableimg.js"></script> -->
+
+    <script src="scriptproductH.js"></script>
     <link rel="preload" href="../products/scriptsp.js" as="script">
   <script src="scriptsp.js"></script>
   <footer>
