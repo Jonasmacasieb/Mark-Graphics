@@ -5,11 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mark Graphics</title>
   <link rel="stylesheet" href="assets/style.css" />
-  <link rel="stylesheet" href="../navbar/navbar.css">
-  <link rel="prefetch" href="../products/hoodies.html" as="document">
-   <link rel="prefetch" href="../products/jersey.html" as="document">
-    <link rel="prefetch" href="../products/polos.html" as="document">
-     <link rel="prefetch" href="../products/tshirts.html" as="document">
+
+  
   <style>
     body {
      
@@ -52,29 +49,13 @@
   <main class="container" id="products">
    
 
-<!-- 
-    
-  {% for category, files in files_by_category.items() %}
-    <h3>{{ category.capitalize() }}</h3>
-    <div class="product-grid">
-      {% for file in files %}
-        <div class="product-card">
-          <a href="products/{{ category }}.html">
-            <img src="{{ file }}" alt="{{ category }}" width="150" loading="lazy" />
-            <h4>{{ category.capitalize() }}</h4>
-            <p>Auto-loaded preview</p>
-          </a>
-        </div>
-      {% endfor %}
-    </div>
-  {% endfor %} -->
 
     <h2 class="section-title">Featured Design</h2>
   
 <h3 id="tshirts" class="product-category">T-Shirts</h3>
 <div class="product-grid">
   <a href="products/tshirts.html" class="product-card">
-  <img src="images/tshirts/t1.jpg" alt="T-Shirt"  width="150"/>
+  <img src="images/tshirts/t1.jpg" alt="T-Shirt"   loading="lazy"/>
     <h3>T-shirts</h3>
     <p>Stylish graphic print</p>
     </a>
@@ -85,7 +66,7 @@
 <h3 id="polos"class="product-category">Polos</h3>
 <div class="product-grid">
     <a href="products/polos.html" class="product-card">
-  <img src="images/polos/p1.jpg" alt="polo"  />
+  <img src="images/polos/p1.jpg" alt="polo"   loading="lazy"/>
  <h3>Classic Polo</h3>
     <p>Comfortable cotton polo</p>
 </a>
@@ -97,7 +78,7 @@
 <h3 id="jerseys"class="product-category">Jerseys</h3>
 <div class="product-grid">
       <a href="products/jersey.html" class="product-card">
-  <img src="images/jerseys/j1.jpg" alt="jersey"  />
+  <img src="images/jerseys/j1.jpg" alt="jersey"   loading="lazy"/>
   <h3>Jersey</h3>
     <p>Authentic sports jersey</p>
 </a>
@@ -108,7 +89,7 @@
 <h3 id="hoodies" class="product-category">Hoodies</h3>
 <div class="product-grid">
       <a href="products/hoodies.html" class="product-card">
-  <img src="images/hoodies/h1.jpg" alt="hoodie" />
+  <img src="images/hoodies/h1.jpg" alt="hoodie"  loading="lazy"/>
  <h3>Hoodies</h3>
     <p>Warm hoodie</p>
 </a>
@@ -135,9 +116,10 @@
       <p>Location: Aliaga, Malasiqui, Philippines</p>
     </div>
   </section>
-  <link rel="preload" href="../products/scriptsp.js" as="script">
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="preload" href="script.js" as="script">
+<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+
 
   <footer>
     <p>&copy; 2025 Mark's Store. All rights reserved.</p>
