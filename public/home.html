@@ -51,8 +51,26 @@
   <!-- Products Section -->
   <main class="container" id="products">
    
+
+<!-- 
+    
+  {% for category, files in files_by_category.items() %}
+    <h3>{{ category.capitalize() }}</h3>
+    <div class="product-grid">
+      {% for file in files %}
+        <div class="product-card">
+          <a href="products/{{ category }}.html">
+            <img src="{{ file }}" alt="{{ category }}" width="150" loading="lazy" />
+            <h4>{{ category.capitalize() }}</h4>
+            <p>Auto-loaded preview</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %} -->
+
     <h2 class="section-title">Featured Design</h2>
-    <!-- T-Shirts -->
+  
 <h3 id="tshirts" class="product-category">T-Shirts</h3>
 <div class="product-grid">
   <a href="products/tshirts.html" class="product-card">
@@ -63,7 +81,7 @@
   </div>
 </div>
 
-<!-- Polos -->
+
 <h3 id="polos"class="product-category">Polos</h3>
 <div class="product-grid">
     <a href="products/polos.html" class="product-card">
@@ -75,7 +93,7 @@
   </div>
 </div>
 
-<!-- Jerseys -->
+
 <h3 id="jerseys"class="product-category">Jerseys</h3>
 <div class="product-grid">
       <a href="products/jersey.html" class="product-card">
@@ -86,7 +104,7 @@
   </div>
 </div>
 
-<!-- Hoodies -->
+
 <h3 id="hoodies" class="product-category">Hoodies</h3>
 <div class="product-grid">
       <a href="products/hoodies.html" class="product-card">
@@ -103,18 +121,18 @@
     <img id="modalImage" src="" alt="Product Image">
     <h3 id="modalTitle"></h3>
     <p id="modalDescription"></p>
-    <!-- <span id="modalPrice" class="price"></span> -->
+    <span id="modalPrice" class="price"></span> 
   </div>
-</div>
+</div> 
   </main>
 
-  <!-- Contact Section -->
+ <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="container">
       <h2>Contact Us</h2>
-      <p>Email: mark@store.com</p>
-      <p>Phone: +1 (555) 123-4567</p>
-      <p>Location: 123 Main St, Hometown, USA</p>
+      <p>Email:markgraphics62@gmail.com</p>
+      <p>Phone: +63 946 196 5012</p>
+      <p>Location: Aliaga, Malasiqui, Philippines</p>
     </div>
   </section>
   <link rel="preload" href="../products/scriptsp.js" as="script">

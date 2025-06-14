@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
     <title>Upload Products by Category</title>
 </head>
 <body>
@@ -23,19 +22,19 @@
     {% for category, files in files_by_category.items() %}
         <h3>{{ category.capitalize() }}</h3>
         <ul>
-            {% for file in files %}
-                <li>
-                    <a href="{{ url_for('uploaded_file', category=category, filename=file) }}">{{ file }}</a>
-                    <form action="{{ url_for('delete_file', category=category, filename=file) }}" method="post" style="display:inline;">
-                        <button type="submit">Delete</button>
-                    </form>
-                </li>
+            {% if files %}
+                {% for file in files %}
+                    <li>
+                        <a href="{{ url_for('uploaded_file', category=category, filename=file) }}" target="_blank">{{ file }}</a>
+                        <form action="{{ url_for('delete_file', category=category, filename=file) }}" method="post" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                {% endfor %}
             {% else %}
                 <li>No files in this category.</li>
-            {% endfor %}
+            {% endif %}
         </ul>
     {% endfor %}
 </body>
 </html>
-
-    

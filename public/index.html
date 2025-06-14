@@ -1,24 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="prefetch" href="home.html" as="document">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Mark Graphics</title>
 
+  <!-- Preload JS (if used immediately) -->
+  <link rel="preload" href="script.js" as="script">
 
+  <!-- Prefetch next page -->
+  <link rel="prefetch" href="home.html" as="document">
 
-    <title>Mark Graphics</title>
-  <style>
-   
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <
   </style>
 </head>
 <body>
-    
-  <a href="home.html" class="button-link" class="no-copy"><img src="assets/OFFICIALLOGO.png" alt="logo" height="60px"> Design</a>
-  <link rel="preload" href="script.js" as="script">
-  <!-- <script src="disableimg.js"></script> -->
-</body> 
+
+  <a href="home.html" class="button-link no-copy">
+    <img src="assets/OFFICIALLOGO.png" alt="Mark Graphics Logo" height="60">
+    Design
+  </a>
+
+  <!-- Load script if used -->
+  <script src="script.js" defer></script>
+</body>
 </html>
