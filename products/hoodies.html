@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Graphic Tees - Mark's Store</title>
+  <title>Graphic Tees - Mark Design</title>
   <link rel="stylesheet" href="../assets/product.css" />
  
  <link rel="prefetch" href="../products/hoodies.html" as="document">
@@ -52,24 +52,7 @@
      
     </div>
 
-    
-<script>
-  fetch('/api/products/hoodies')
-    .then(res => res.json())
-    .then(images => {
-      const productList = document.querySelector('.product-list');
-      images.forEach((image, index) => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-          <img src="${image}" alt="Hoodie ${index + 1}">
-          <h3>Hoodie ${index + 1}</h3>
-        `;
-        productList.appendChild(card);
-      });
-    })
-    .catch(err => console.error('Error loading products:', err));
-</script>
+ 
   </main>
 
  <section id="contact" class="contact-section">

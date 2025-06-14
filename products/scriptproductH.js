@@ -17,4 +17,25 @@
     `;
     productList.appendChild(card);
   });
-
+  
+// fetch('/api/products/hoodies')
+//       .then(res => res.json())
+//       .then(images => {
+//         const productList = document.querySelector('.product-list');
+//         if (images.length === 0) {
+//           productList.innerHTML = "<p>No hoodies available.</p>";
+//         }
+//         images.forEach((img, index) => {
+//           const card = document.createElement('div');
+//           card.className = 'product-card';
+//           card.innerHTML = `
+//             <img src="${img}" alt="Hoodie ${index + 1}" />
+//             <h3>Hoodie ${index + 1}</h3>
+//           `;
+//           productList.appendChild(card);
+//         });
+//       })
+//       .catch(err => {
+//         console.error('Error loading images:', err);
+//         document.querySelector('.product-list').innerHTML = "<p>Error loading hoodies.</p>";
+//       });

@@ -49,6 +49,18 @@ def delete_file(category, filename):
 def uploaded_file(category, filename):
     return send_from_directory(os.path.join(BASE_FOLDER, category), filename)
 
+@app.route('/api/products/<category>')
+def get_images_by_category(category):
+    if category not in CATEGORIES:
+        return jsonify({'error': 'Invalid category'}), 400
+
+    folder_path = os.path.join(BASE_FOLDER, category)
+    files = os.listdir(folder_path)
+    image_urls = [
+        f"/images/{category}/{file}" for file in files
+        if file.lower().endswith(('.jpg', '.jpeg', '.png', '.gif'))
+    ]
+    return jsonify(image_urls)
 
 if __name__ == '__main__':
     app.run(debug=True)
