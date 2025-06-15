@@ -1,21 +1,41 @@
 
-  const products = [
-    { image: "../images/hoodies/h1.jpg", name: "Graphic Tee 1" },
-    { image: "../images/hoodies/h2.jpg", name: "Graphic Tee 2" },
+  // const products = [
+  //   { image: "../images/hoodies/h1.jpg", name: "Graphic Tee 1" },
+  //   { image: "../images/hoodies/h2.jpg", name: "Graphic Tee 2" },
    
-  ];
+  // ];
 
-  const productList = document.querySelector('.product-list');
+  // const productList = document.querySelector('.product-list');
 
-  products.forEach(product => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
+  // products.forEach(product => {
+  //   const card = document.createElement('div');
+  //   card.className = 'product-card';
+  //   card.innerHTML = `
+  //     <img src="${product.image}" alt="${product.name}">
+  //     <h3>${product.name}</h3>
       
-    `;
-    productList.appendChild(card);
+  //   `;
+  //   productList.appendChild(card);
+  // });
+
+  // const productList = document.querySelector('.product-list');
+
+fetch('/api/hoodies')
+  .then(res => res.json())
+  .then(products => {
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+      `;
+      productList.appendChild(card);
+    });
+  })
+  .catch(err => {
+    productList.innerHTML = "<p>Failed to load products.</p>";
+    console.error("Error:", err);
   });
   
 // fetch('/api/products/hoodies')
