@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageName = pathParts[pathParts.length - 1];
   const category = pageName.replace('.html', '');
 
-  fetch(`/api/products/${category}`)
+  fetch(`/api/${category}`)
     .then(res => res.json())
     .then(products => {
       if (!products.length) {
@@ -18,10 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-          <picture>
-            <source srcset="${product.image.replace(/\.(jpg|jpeg|png)/i, '.webp')}" type="image/webp">
-            <img src="${product.image}" alt="${product.name}">
-          </picture>
+          <img src="${product.image}" alt="${product.name}">
           <h3>${product.name}</h3>
         `;
         productList.appendChild(card);
@@ -32,3 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(err);
     });
 });
+
+card.innerHTML = `
+  <picture>
+    <source srcset="${product.image.replace('.jpg', '.webp')}" type="image/webp">
+    <img src="${product.image}" alt="${product.name}">
+  </picture>
+  <h3>${product.name}</h3>
+`;
+

@@ -23,12 +23,12 @@
     section.scrollIntoView({ behavior: 'smooth' });
   }
 }
-// const categories = [
-//   { id: 'tshirts', label: 'T-Shirts', folder: 'images/tshirts/', images: ['t1.jpg', 't2.jpg', 't3.jpg', 't4.jpg', 't5.jpg', 't6.jpg', 't7.jpg', 't8.jpg', 't9.jpg', 't10.jpg','t11.jpg','t12.jpg','t13.jpg','t14.jpg',] },
-//   { id: 'polos', label: 'Polos', folder: 'images/polos/', images: ['p1.jpg', 'p2.jpg', 'p3.jpg', 'p4.jpg', 'p5.jpg','p6.jpg','p7.jpg','p8.jpg',] },
-//   { id: 'jerseys', label: 'Jerseys', folder: 'images/jerseys/', images: ['j1.jpg', 'j2.jpg',] },
-//   { id: 'hoodies', label: 'Hoodies', folder: 'images/hoodies/', images: ['h1.jpg', 'h2.jpg',] }
-// ];
+const categories = [
+  { id: 'tshirts', label: 'T-Shirts', folder: 'images/tshirts/', images: ['t1.webp', 't2.webp'] },
+  { id: 'polos', label: 'Polos', folder: 'images/polos/', images: ['p1.webp', 'p2.webp', 'p3.webp', 'p4.webp'] },
+  { id: 'jerseys', label: 'Jerseys', folder: 'images/jerseys/', images: ['j1.webp', 'j2.webp',] },
+  { id: 'hoodies', label: 'Hoodies', folder: 'images/hoodies/', images: ['h1.webp', 'h2.webp',] }
+];
 
 function getRandomPreviewItem(images) {
   const index = Math.floor(Math.random() * images.length);
