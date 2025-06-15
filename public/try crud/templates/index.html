@@ -1,87 +1,198 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Upload Products by Category</title>
-</head>
-<body>
-    <h1>Upload an Image</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="category">Choose Category:</label>
-        <select name="category" required>
-            {% for cat in categories %}
-                <option value="{{ cat }}">{{ cat.capitalize() }}</option>
-            {% endfor %}
-        </select>
-        <input type="file" name="file" required>
-        <input type="submit" value="Upload">
-    </form>
-
-    <hr>
-    <h2>Uploaded Files</h2>
-    {% for category, files in files_by_category.items() %}
-        <h3>{{ category.capitalize() }}</h3>
-        <ul>
-            {% if files %}
-                {% for file in files %}
-                    <li>
-                        <a href="{{ url_for('uploaded_file', category=category, filename=file) }}" target="_blank">{{ file }}</a>
-                        <form action="{{ url_for('delete_file', category=category, filename=file) }}" method="post" style="display:inline;">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </li>
-                {% endfor %}
-            {% else %}
-                <li>No files in this category.</li>
-            {% endif %}
-        </ul>
-    {% endfor %}
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Upload Products by Category</title>
-    <style>
-        body { font-family: Arial; padding: 20px; }
-        img { max-height: 100px; display: block; margin-top: 5px; }
-        ul { list-style: none; padding: 0; }
-        li { margin-bottom: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Upload Products by Category</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      background: linear-gradient(to right, #f0f4f8, #d9e9ff);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3 {
+      color: #333;
+    }
+
+    form {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      max-width: 600px;
+    }
+
+    select, input[type="file"], input[type="submit"] {
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #fff;
+      margin-bottom: 12px;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    img {
+      max-height: 100px;
+      display: block;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    button {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .category-box {
+      background: #ffffffb2;
+      padding: 20px;
+      margin: 10px;
+      border-left: 5px solid #007bff;
+      border-radius: 10px;
+      flex: 1;
+    }
+
+    .category-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .category-menu {
+      background: #fff;
+      padding: 10px 20px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .category-menu a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .category-menu a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <h1>Upload an Image</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <label for="category">Choose Category:</label>
-        <select name="category" required>
-            {% for cat in categories %}
-                <option value="{{ cat }}">{{ cat.capitalize() }}</option>
-            {% endfor %}
-        </select>
-        <input type="file" name="file" required>
-        <input type="submit" value="Upload">
-    </form>
+  <h1>Upload an Image</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <label for="category">Choose Category:</label>
+    <select name="category" required>
+      {% for cat in categories %}
+        <option value="{{ cat }}">{{ cat.capitalize() }}</option>
+      {% endfor %}
+    </select>
 
-    <hr>
-    <h2>Uploaded Files</h2>
-    {% for category, files in files_by_category.items() %}
-        <h3>{{ category.capitalize() }}</h3>
-        <ul>
-            {% if files %}
-                {% for file in files %}
-                    <li>
-                        <a href="{{ url_for('uploaded_file', category=category, filename=file) }}" target="_blank">{{ file }}</a>
-                        <form action="{{ url_for('delete_file', category=category, filename=file) }}" method="post" style="display:inline;">
-                            <button type="submit">Delete</button>
-                        </form>
-                        <img src="{{ url_for('uploaded_file', category=category, filename=file) }}" alt="{{ file }}">
-                    </li>
-                {% endfor %}
-            {% else %}
-                <li>No files in this category.</li>
-            {% endif %}
-        </ul>
+    <input type="file" name="file" required>
+    <input type="submit" value="Upload">
+  </form>
+
+  <!-- Category menu -->
+  <div class="category-menu">
+    {% for cat in categories %}
+      <a href="#{{ cat }}">{{ cat.capitalize() }}</a>
     {% endfor %}
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="category-columns">
+    <!-- Left Column -->
+    <div class="column">
+      {% for cat in ['tshirts', 'polos'] %}
+        <div class="category-box" id="{{ cat }}">
+          <h3>{{ cat.capitalize() }}</h3>
+          <ul>
+            {% if files_by_category[cat] %}
+              {% for file in files_by_category[cat] %}
+                <li>
+                  <a href="{{ url_for('uploaded_file', category=cat, filename=file) }}" target="_blank">{{ file }}</a>
+                  <form action="{{ url_for('delete_file', category=cat, filename=file) }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                  </form>
+                  <img src="{{ url_for('uploaded_file', category=cat, filename=file) }}" alt="{{ file }}">
+                </li>
+              {% endfor %}
+            {% else %}
+              <li>No files in this category.</li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Right Column -->
+    <div class="column">
+      {% for cat in ['jerseys', 'hoodies'] %}
+        <div class="category-box" id="{{ cat }}">
+          <h3>{{ cat.capitalize() }}</h3>
+          <ul>
+            {% if files_by_category[cat] %}
+              {% for file in files_by_category[cat] %}
+                <li>
+                  <a href="{{ url_for('uploaded_file', category=cat, filename=file) }}" target="_blank">{{ file }}</a>
+                  <form action="{{ url_for('delete_file', category=cat, filename=file) }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                  </form>
+                  <img src="{{ url_for('uploaded_file', category=cat, filename=file) }}" alt="{{ file }}">
+                </li>
+              {% endfor %}
+            {% else %}
+              <li>No files in this category.</li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </body>
 </html>
