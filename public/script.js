@@ -27,7 +27,7 @@ const categories = [
   { id: 'tshirts', label: 'T-Shirts', folder: 'images/tshirts/', images: ['t1.webp', 't2.webp'] },
   { id: 'polos', label: 'Polos', folder: 'images/polos/', images: ['p1.webp', 'p2.webp', 'p3.webp', 'p4.webp'] },
   { id: 'jerseys', label: 'Jerseys', folder: 'images/jerseys/', images: ['j1.webp', 'j2.webp',] },
-  { id: 'hoodies', label: 'Hoodies', folder: 'images/hoodies/', images: ['h1.webp', 'h2.webp',] }
+  { id: 'hoodies', label: 'Hoodies', folder: 'images/hoodies/', images: ['h1.jpg', 'h2.jpg',] }
 ];
 
 function getRandomPreviewItem(images) {
