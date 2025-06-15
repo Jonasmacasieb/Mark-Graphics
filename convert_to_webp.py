@@ -1,6 +1,7 @@
-# convert_to_webp.py
+
 
 from PIL import Image
+
 import os
 
 categories = ['tshirts', 'polos', 'jerseys', 'hoodies']
