@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: render-node-app
+    name: mark-graphics
     env: node
     buildCommand: |
       apt-get update && apt-get install -y python3

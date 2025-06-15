@@ -1,9 +1,9 @@
-import os, json, sys
+# list_images.py
+import os, json
 
-# You can pass in folder via arg or default
-folder = sys.argv[1] if len(sys.argv) > 1 else 'public/images/hoodies'
+category = 'hoodies'  # or use sys.argv to support dynamic
+folder = f'public/images/{category}'
 
-# List image files
-files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg','.png','.jpeg'))]
-paths = [f"/images/hoodies/{f}" for f in files]
-print(json.dumps(paths))
+files = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
+data = [{"image": f"/images/{category}/{f}", "name": f.split('.')[0]} for f in files]
+print(json.dumps(data))

@@ -15,37 +15,24 @@
 //   console.log(`Server running on port ${PORT}`);
 // });
 
+
 const express = require('express');
 const { exec } = require('child_process');
 const path = require('path');
-
 const app = express();
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/products', (req, res) => {
-  exec('python3 list_images.py', (err, stdout, stderr) => {
-    if (err) return res.status(500).send("Image load error");
-
-    let images;
+// API endpoint to load hoodie images
+app.get('/api/hoodies', (req, res) => {
+  exec('python3 list_images.py', (err, stdout) => {
+    if (err) return res.status(500).json({ error: 'Python failed' });
     try {
-      images = JSON.parse(stdout);
+      const images = JSON.parse(stdout);
+      res.json(images);
     } catch {
-      return res.status(500).send("Invalid data");
+      res.status(500).json({ error: 'Invalid Python output' });
     }
-
-    // Build HTML
-    const cards = images.map(i => `
-      <div class="product-card">
-        <img src="${i}" loading="lazy" alt="">
-      </div>
-    `).join('');
-
-    res.send(`
-      <!DOCTYPE html><html><head><title>Products</title></head><body>
-      <h2>Hoodies</h2>
-      <div class="product-grid">${cards}</div>
-      </body></html>
-    `);
   });
 });
 
@@ -54,4 +41,5 @@ app.get('/', (req, res) =>
 );
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server on ${PORT}`));
+app.listen(PORT, () => console.log(`Server on port ${PORT}`));
+

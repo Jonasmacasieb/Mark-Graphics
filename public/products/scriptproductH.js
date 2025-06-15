@@ -19,25 +19,27 @@
   // });
 
   // const productList = document.querySelector('.product-list');
+document.addEventListener('DOMContentLoaded', () => {
+  const productList = document.querySelector('.product-list');
 
-fetch('/api/hoodies')
-  .then(res => res.json())
-  .then(products => {
-    products.forEach(product => {
-      const card = document.createElement('div');
-      card.className = 'product-card';
-      card.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-      `;
-      productList.appendChild(card);
+  fetch('/api/hoodies')
+    .then(res => res.json())
+    .then(products => {
+      products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <h3>${product.name}</h3>
+        `;
+        productList.appendChild(card);
+      });
+    })
+    .catch(err => {
+      productList.innerHTML = '<p>Error loading products.</p>';
+      console.error(err);
     });
-  })
-  .catch(err => {
-    productList.innerHTML = "<p>Failed to load products.</p>";
-    console.error("Error:", err);
-  });
-  
+});
 // fetch('/api/products/hoodies')
 //       .then(res => res.json())
 //       .then(images => {
