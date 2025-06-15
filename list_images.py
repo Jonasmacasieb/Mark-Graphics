@@ -8,6 +8,11 @@ if not os.path.isdir(folder):
     print(json.dumps([]))
     exit()
 
-images = [f for f in os.listdir(folder) if f.lower().endswith(('.jpg', '.png', '.jpeg'))]
-data = [{"image": f"/images/{category}/{f}", "name": f.split('.')[0]} for f in images]
+# Include .webp images
+valid_extensions = ('.jpg', '.jpeg', '.png', '.webp')
+images = [f for f in os.listdir(folder) if f.lower().endswith(valid_extensions)]
+
+# Return image path and product name (without extension)
+data = [{"image": f"/images/{category}/{f}", "name": os.path.splitext(f)[0].replace('_', ' ').capitalize()} for f in images]
+
 print(json.dumps(data))
