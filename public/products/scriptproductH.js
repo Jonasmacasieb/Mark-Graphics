@@ -1,63 +1,31 @@
-
-  // const products = [
-  //   { image: "../images/hoodies/h1.jpg", name: "Graphic Tee 1" },
-  //   { image: "../images/hoodies/h2.jpg", name: "Graphic Tee 2" },
-   
-  // ];
-
-  // const productList = document.querySelector('.product-list');
-
-  // products.forEach(product => {
-  //   const card = document.createElement('div');
-  //   card.className = 'product-card';
-  //   card.innerHTML = `
-  //     <img src="${product.image}" alt="${product.name}">
-  //     <h3>${product.name}</h3>
-      
-  //   `;
-  //   productList.appendChild(card);
-  // });
-
-  // const productList = document.querySelector('.product-list');
 document.addEventListener('DOMContentLoaded', () => {
   const productList = document.querySelector('.product-list');
 
-  fetch('/api/hoodies')
+  // Get the category from the current page (e.g. "hoodies.html")
+  const pathParts = window.location.pathname.split('/');
+  const pageName = pathParts[pathParts.length - 1];
+  const category = pageName.replace('.html', '');
+
+  fetch(`/api/${category}`)
     .then(res => res.json())
     .then(products => {
+      if (!products.length) {
+        productList.innerHTML = "<p>No products found.</p>";
+        return;
+      }
+
       products.forEach(product => {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" />
+          <img src="${product.image}" alt="${product.name}">
           <h3>${product.name}</h3>
         `;
         productList.appendChild(card);
       });
     })
     .catch(err => {
-      productList.innerHTML = '<p>Error loading products.</p>';
+      productList.innerHTML = "<p>Failed to load products.</p>";
       console.error(err);
     });
 });
-// fetch('/api/products/hoodies')
-//       .then(res => res.json())
-//       .then(images => {
-//         const productList = document.querySelector('.product-list');
-//         if (images.length === 0) {
-//           productList.innerHTML = "<p>No hoodies available.</p>";
-//         }
-//         images.forEach((img, index) => {
-//           const card = document.createElement('div');
-//           card.className = 'product-card';
-//           card.innerHTML = `
-//             <img src="${img}" alt="Hoodie ${index + 1}" />
-//             <h3>Hoodie ${index + 1}</h3>
-//           `;
-//           productList.appendChild(card);
-//         });
-//       })
-//       .catch(err => {
-//         console.error('Error loading images:', err);
-//         document.querySelector('.product-list').innerHTML = "<p>Error loading hoodies.</p>";
-//       });
